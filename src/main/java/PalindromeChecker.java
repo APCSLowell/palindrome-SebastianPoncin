@@ -38,7 +38,9 @@ public class PalindromeChecker {
   public boolean palindrome(String word)
   {
     //your code here
-    return word.equals(reverse(word));
+    String tafu = new String(doStuff(word));
+    
+    return tafu.equals(reverse(tafu));
   }
   public String reverse(String str)
   {
@@ -48,4 +50,30 @@ public class PalindromeChecker {
       }
       return sNew;
   }
+  public String onlyLetters(String sString){
+    String tofu = new String("");
+    for(int i = 0; i < sString.length(); i++) {
+      if(Character.isLetter(sString.charAt(i))) {
+        tofu+=sString.charAt(i);
+      }
+    }
+    return tofu;
+  }
+
+  public String noSpaces(String sWord){
+    String uwu = new String("");
+    for(int i = 0; i < sWord.length(); i++) {
+      if(!sWord.substring(i, i+1).equals(" ")) {
+        uwu += sWord.substring(i, i+1);
+      }
+    }
+    return uwu;
+  }
+  public String noCapitals(String sWord){
+    return sWord.toLowerCase();
+  }
+  
+  public String doStuff(String sWord) {
+    return onlyLetters(noSpaces(noCapitals(sWord)));
+  }  
 }
